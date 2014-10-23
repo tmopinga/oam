@@ -1,0 +1,40 @@
+.menuBar{
+	width:				500px;
+}
+
+.x-grid3-cell-inner, .x-grid3-hd-inner{
+	white-space:		normal;
+}
+
+.menuBar .x-btn-icon .x-btn-small .separator{
+	background-color:	white;
+	width:				1px;
+}
+
+.menuBar .placeHolder{
+	background-image:	url("../images/add16.gif");
+}
+
+.menuBar .dragHandle{
+	background-image:	url("../images/add16.gif");
+	cursor: 			move;
+	width:				16px;
+}
+
+.menuBar .collapseButton{
+	background-image:	url("../images/add16.gif");
+	cursor: 			pointer;
+	width:				16px;
+}
+
+.menuBar .x-btn-mc em.x-btn-arrow {
+	background-image:	none;
+	padding-right:		0;
+}
+
+.x-btn .atGlance {
+	background:	url("../images/btn-at-glance.gif") no-repeat 0px 3px;
+	cursor: 			pointer;
+	width:				25px;
+	height:			22px;
+}

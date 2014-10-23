@@ -1,0 +1,2384 @@
+////////////////////////////////////////////////////////
+/**** Mastercard custom extJS overrides ****/
+//////////////////////////////////////////////////////
+
+/**** floating menubar styles ****/
+
+#menubar.x-toolbar {
+	background:none;
+	z-index:10000;
+	margin:0;
+	padding:0;
+}
+
+#menubar button {
+	font-size:10px;
+	font-weight:bold;
+	font-family:Arial;
+	height:24px;
+	padding:0 5px 0 17px;
+	text-transform: uppercase;
+}
+
+#menubar .x-btn-mc {
+	height:24px;
+	background:url(../images/btn-menubar-mc.jpg) repeat-x 0 0;
+}
+
+.ghost {
+	background:#999;
+	border:1px solid #000
+}
+
+.ghost * {
+	visibility:hidden
+}
+
+.ghost .x-btn-mc {
+	height:24px;
+	background:url(../images/btn-menubar-mc.jpg) repeat-x 0 0 !important;
+}
+/* remove background from edges */
+#menubar #dragHandleTable .x-btn-mc, .ghost #dragHandleTable .x-btn-mc {
+	background:none !important
+}
+#menubar #collapseButtonTable .x-btn-mc, .ghost #collapseButtonTable .x-btn-mc {
+	background:none !important
+}
+
+.ghost button {
+	font-size:10px;
+	font-weight:bold;
+	height:24px !important;
+	padding:0 5px 0 20px !important;
+}
+
+#menubar.collapsed button {
+	padding: 0 5px;
+}
+
+#menubar .collapseButton, .ghost .collapseButton {
+	background:url(../images/btn-menubar-min.gif) no-repeat top left !important;
+	width:43px !important;
+	height:34px !important;
+	position:relative;
+	top:0px
+}
+
+#menubar.collapsed .collapseButton, .ghost .collapsed .collapseButton {
+	background:url(../images/btn-menubar-max.gif) no-repeat top left !important;
+	width:43px !important;
+	height:34px !important;
+}
+
+#menubar.docked-left .collapseButton {
+	background:url(../images/mastercard/btn-menubar-min-v.gif) no-repeat 110px 6px !important;
+	width:130px !important;
+	height:32px;
+}
+
+#menubar.docked-left.collapsed .collapseButton {
+	/* add expand button graphic here */
+	width:20px !important;
+	height:32px;
+}
+
+#menubar .dragHandle, .ghost .dragHandle {
+	width:31px;
+	background:url(../images/btn-menubar-move.gif) no-repeat top left !important;
+	cursor:move;
+	height:34px !important;
+	padding:0;
+	position:relative;
+	top:0px;
+}
+
+#menubar.docked-left .dragHandle {
+	background:url(../images/mastercard/btn-menubar-move-v.gif) no-repeat center left !important;
+	width:102px;
+	height:30px !important;
+}
+
+#menubar.docked-left #dragHandleTable td.x-btn-mr {
+	width:26px;
+	background:transparent url(../images/mastercard/btn-menubar-move-mr-v-test.gif) 0px -1px no-repeat!important;
+}
+
+#menubar.docked-left.collapsed .dragHandle {
+	/* add collapsed drag button here (if different from above graphic) */
+	width:0px;
+	background:none !important;
+}
+
+#menubar.docked-left  #collapseButtonTable button{
+	visibility:hidden;
+	cursor:default!important;
+}	
+
+/* pull the default edge backgrounds from the rounded edges */
+#dragHandleTable .x-btn-tc, #dragHandleTable .x-btn-bc, #dragHandleTable .x-btn-tl, #dragHandleTable .x-btn-tr, #dragHandleTable .x-btn-br, #dragHandleTable .x-btn-bl, #dragHandleTable .x-btn-mr, #collapseButtonTable .x-btn-tc, #collapseButtonTable .x-btn-bc, #collapseButtonTable .x-btn-tl, #collapseButtonTable .x-btn-tr, #collapseButtonTable .x-btn-br, #collapseButtonTable .x-btn-bl, #collapseButtonTable .x-btn-ml,  #dragHandleTable .x-btn-mr {
+	background:none;
+	background:none;
+	display:none !important
+}
+
+#menubar #collapseButtonTable .x-btn-mr, #menubar #dragHandleTable .x-btn-ml  {
+	background:none;
+	display:none;
+	opacity: 1;
+}
+
+#menubar #dragHandleTable .x-btn-mc, #menubar #collapseButtonTable x-btn-mc  {
+	opacity: 1;
+}
+
+.ghost #collapseButtonTable .x-btn-mr, .ghost #dragHandleTable .x-btn-ml  {
+	background:none;
+	display:none;
+	opacity: 1;
+}
+
+#menubar #collapseButtonTable em, #menubar #dragHandleTable em { 
+	background: none ;
+}
+
+#menubar #dragHandleTable em {
+	position:relative;
+	left:14px
+}
+
+#menubar .alertsContainer button.alertsButton, .ghost .alertsContainer button.alertsButton
+{ background: transparent url(../images/btn-menubar-alerts.jpg) no-repeat center left }
+#menubar .alertsContainer button.alertsButtonOrange, .ghost .alertsContainer button.alertsButtonOrange
+{ background: transparent url(../images/btn-menubar-alerts-orange.gif) no-repeat center left }
+#menubar .tasksButtonContainer button, .ghost .tasksButtonContainer button 
+{ background: transparent url(../images/btn-menubar-tasks.png) no-repeat center left }
+#menubar .myToolsContainer button, .ghost .myToolsContainer button 
+{ background: transparent url(../images/btn-menubar-tools.jpg) no-repeat center left }
+#menubar .myFavoritesContainer button, .ghost .myFavoritesContainer button  
+{ background: transparent url(../images/btn-menubar-favorites.jpg) no-repeat center left }
+#menubar .aboutMasterCardContainer button, .ghost .aboutMasterCardContainer button 
+{ background: transparent url(../images/btn-menubar-mclogo.jpg) no-repeat center left }
+
+#menubar button {
+	position:relative;
+	top:-2px
+}
+
+li#x-menu-el-x-label-noFavs{padding:10px 0;}
+li#x-menu-el-x-label-noFavs label{font-weight:bold;}
+/**** these styles handle rollover states for menu bar ****/
+
+#menubar .alertsButtonOn .x-btn-mc, #menubar.docked-left .alertsButtonOn em, #menubar .alertsContainer .x-btn-menu-active em  { 
+	background:#ccc url(../images/btn-menubar-roll-bg.gif) repeat-x top left;
+	opacity:1.0;
+}
+
+#menubar.docked-left.collapsed .x-btn-menu-active em {
+	background:#ccc url(../images/mastercard/btn-menubar-roll-min-dock.gif) no-repeat top left;	
+}
+
+#menubar.docked-left.collapsed .alertsButtonOn .x-btn-mc em { 
+	background:#ccc url(../images/mastercard/btn-menubar-roll-min-dock.gif) no-repeat top left;
+	opacity:1.0
+}
+#menubar .alertsContainer .alertsButtonOn button, #menubar .alertsContainer .x-btn-menu-active button { 
+	color:#fff !important;
+	background: transparent url(../images/btn-menubar-alerts-on.jpg) no-repeat center left	
+}
+#menubar .alertsButtonOn .x-btn-ml, #menubar .alertsContainer .x-btn-menu-active .x-btn-ml{ background:#ccc url(../images/btn-menubar-roll-bg-ml.gif) no-repeat top right; opacity:1 }
+#menubar .alertsButtonOn .x-btn-mr, #menubar .alertsContainer .x-btn-menu-active .x-btn-mr{ background:#ccc url(../images/btn-menubar-roll-bg-mr.gif) no-repeat top left; opacity:1 }/*docked left side graphics */#menubar.docked-left .alertsButtonOn .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-ml-v.gif) no-repeat top right; opacity:1 }
+#menubar.docked-left .alertsButtonOn .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr-v.gif) no-repeat top left; opacity:1 }
+
+#menubar .tasksButtonOn .x-btn-mc, #menubar.docked-left .tasksButtonOn em, #menubar .tasksButtonContainer .x-btn-menu-active em  { 
+	background:#ccc url(../images/btn-menubar-roll-bg.gif) repeat-x top left;
+	opacity:1.0	
+}
+#menubar .tasksButtonOn button, #menubar .tasksButtonContainer .x-btn-menu-active button {
+	color:#fff !important;
+	background:transparent url(../images/btn-menubar-tasks-on.jpg) no-repeat center left;
+}
+
+#menubar.docked-left.collapsed .tasksButtonOn .x-btn-mc em { 
+	background:#ccc url(../images/mastercard/btn-menubar-roll-min-dock.gif) no-repeat top left;
+	opacity:1.0
+}
+#menubar .tasksButtonOn .x-btn-ml, #menubar .tasksButtonContainer .x-btn-menu-active .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-bg-ml.gif) no-repeat top right; opacity:1}
+#menubar .tasksButtonOn .x-btn-mr, #menubar .tasksButtonContainer .x-btn-menu-active .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr.gif) no-repeat top left; opacity:1}/*docked left side graphics */#menubar.docked-left .tasksButtonOn .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-ml-v.gif) no-repeat top right; opacity:1 }
+#menubar.docked-left .tasksButtonOn .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr-v.gif) no-repeat top left; opacity:1 }
+
+
+#menubar .myToolsButtonOn .x-btn-mc, #menubar.docked-left .myToolsButtonOn em, #menubar .myToolsContainer .x-btn-menu-active em  { 
+	background:#ccc url(../images/btn-menubar-roll-bg.gif) repeat-x top left;
+	opacity:1
+}
+#menubar .myToolsButtonOn button, #menubar .myToolsContainer .x-btn-menu-active button {
+	color:#fff !important;
+	background:transparent url(../images/btn-menubar-tools-on.jpg) no-repeat center left;
+	height:22px
+}
+#menubar.docked-left.collapsed .myToolsButtonOn .x-btn-mc em { 
+	background:#ccc url(../images/mastercard/btn-menubar-roll-min-dock.gif) no-repeat top left;
+	opacity:1.0
+}
+#menubar .myToolsButtonOn .x-btn-ml, #menubar .myToolsContainer .x-btn-menu-active .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-bg-ml.gif) no-repeat top right; opacity:1 }
+#menubar .myToolsButtonOn .x-btn-mr, #menubar .myToolsContainer .x-btn-menu-active .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr.gif) no-repeat top left; opacity:1 }
+/*docked left side graphics */#menubar.docked-left .myToolsButtonOn .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-ml-v.gif) no-repeat top right; opacity:1 }
+#menubar.docked-left .myToolsButtonOn .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr-v.gif) no-repeat top left; opacity:1 }
+
+#menubar .myFavoritesButtonOn .x-btn-mc, #menubar.docked-left .myFavoritesButtonOn em, #menubar .myFavoritesContainer .x-btn-menu-active em  { 
+	background:#ccc url(../images/btn-menubar-roll-bg.gif) repeat-x top left; 
+	opacity:1
+}
+#menubar .myFavoritesButtonOn button, #menubar .myFavoritesContainer .x-btn-menu-active button {
+	color:#fff !important;
+	background:transparent url(../images/btn-menubar-favorites-on.jpg) no-repeat center left;
+}
+#menubar.docked-left.collapsed .myFavoritesButtonOn .x-btn-mc em { 
+	background:#ccc url(../images/mastercard/btn-menubar-roll-min-dock.gif) no-repeat top left;
+	opacity:1.0
+}
+#menubar .myFavoritesButtonOn .x-btn-ml, #menubar .myFavoritesContainer .x-btn-menu-active .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-bg-ml.gif) no-repeat top right; opacity:1 }
+#menubar .myFavoritesButtonOn .x-btn-mr, #menubar .myFavoritesContainer .x-btn-menu-active .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr.gif) no-repeat top left; opacity:1 }/*docked left side graphics */#menubar.docked-left .myFavoritesButtonOn .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-ml-v.gif) no-repeat top right; opacity:1 }
+#menubar.docked-left .myFavoritesButtonOn .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr-v.gif) no-repeat top left; opacity:1 }
+
+
+#menubar.docked-left .aboutMastercardButtonOn .x-btn-mc, #menubar .aboutMastercardButtonOn .x-btn-mc { 
+	background:#ccc url(../images/btn-menubar-roll-bg.gif) repeat-x top left; 
+	opacity:1;
+}
+#menubar .aboutMastercardButtonOn button {
+	color:#fff !important;
+	background:transparent url(../images/btn-menubar-mclogo-on.jpg) no-repeat center left;
+}
+
+#menubar.docked-left.collapsed .aboutMastercardButtonOn .x-btn-mc { 
+	background:#ccc url(../images/mastercard/btn-menubar-roll-min-dock.gif) no-repeat top left;
+	opacity:1.0;
+}
+#menubar .aboutMastercardButtonOn .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-bg-ml.gif) no-repeat top right; opacity:1 }
+#menubar .aboutMastercardButtonOn .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr.gif) no-repeat top left; opacity:1 }/*docked left side graphics */#menubar.docked-left .aboutMastercardButtonOn .x-btn-ml {background:#ccc url(../images/btn-menubar-roll-ml-v.gif) no-repeat top right; opacity:1 }
+#menubar.docked-left .aboutMastercardButtonOn .x-btn-mr {background:#ccc url(../images/btn-menubar-roll-bg-mr-v.gif) no-repeat top left; opacity:1 }
+
+
+/**** menu docked left ****/
+
+#menubar.docked-left .x-btn-mc {
+	background:#000 url(../images/bg-menubar-v.gif) repeat 0 0;
+	/* attribute below controls the menu width to match 'about mastercard' */
+	width:147px;
+	height:24px;
+	text-align: left;
+}
+#menubar.docked-left.collapsed .x-btn-mc {
+	background: url(../images/mastercard/btn-menubar-mc-left-min.gif) repeat-y top left;
+}
+
+#menubar.docked-left.collapsed .x-btn-mc {
+	width:36px;
+	text-align: center;
+}
+#menubar.docked-left.collapsed .x-btn-tl, #menubar.docked-left.collapsed .x-btn-tr, #menubar.docked-left.collapsed .x-btn-bl, #menubar.docked-left.collapsed .x-btn-br, #menubar.docked-left.collapsed .x-btn-tc, #menubar.docked-left.collapsed .x-btn-bc {
+	display: none !important;
+}
+
+
+#menubar.docked-left.collapsed #collapseButtonTable .x-btn-mc, .ghost #menubar.docked-left.collapsed #collapseButtonTable .x-btn-mc {
+	width:33px;
+	background: url(../images/mastercard/btn-menubar-expand-left-min.gif) no-repeat top center !important;
+}
+
+#menubar.docked-left.collapsed #dragHandleTable .x-btn-mc {
+	width: 33px;
+	background: url(../images/mastercard/btn-menubar-drag-left-min.gif) no-repeat top left !important;
+}
+
+#menubar.collapsed #dragHandleTable{
+	/*border:1px solid red!important;*/
+}
+
+#menubar.docked-left.collapsed #collapseButtonTable .x-btn-ml, #menubar.docked-left.collapsed #collapseButtonTable .x-btn-mr {
+	display: none !important;
+}
+#menubar.docked-left.collapsed #dragHandleTable .x-btn-ml, #menubar.docked-left.collapsed #dragHandleTable .x-btn-mr {
+	display: none !important;
+}
+
+
+#menubar.docked-left button {
+	padding:0 0 0 20px;
+	height:24px;
+	margin:0 0 0 7px;
+}
+
+.ghost {
+	border:0px !important;
+	opacity:0.4;
+	filter:alpha(opacity=40);
+}
+
+/*** menu bar dropdowns ***/
+#menubar .x-menu .x-menu-scroller-top{
+	background:transparent url(../images/mastercard/bg-menuScroller-top.gif) center center no-repeat;
+}
+ 
+#menubar .x-menu .x-menu-scroller-bottom{
+	background:transparent url(../images/mastercard/bg-menuScroller-bottom.gif) center center no-repeat;
+}
+
+.menubar-dropdowns {
+	background:#E1E1E1 url(../images/mastercard/menubar-dropdown-bg.gif) no-repeat top left;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-moz-border-radius-topleft:0px;
+	border-radius-topleft:0px;
+	border:1px solid #979797;
+	font-family:Arial;
+	padding:0 5px 10px;
+	width:280px
+}
+
+
+.menubar-dropdowns a {
+	color:#346699;
+	font-size:11px;
+	font-weight:bold;
+	padding:2px 0 2px 0px
+}
+
+.menubar-dropdowns .x-btn button {
+	color:#346699;
+}
+
+.menubar-dropdowns .x-btn-over{
+	background:transparent url(../images/mastercard/bg-modal-list.gif) repeat-x scroll left top;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+}
+
+.menubar-dropdowns .x-btn-over button{
+	color:#ffffff !important;
+}
+
+#alertsMenu{
+	width:540px;
+}
+
+#alertsGrid {
+	background:url(../images/mastercard/bg-alerts-table.gif) #FBFCF3 repeat-x top left;
+	font-size:11px;
+	padding:6px 0 0 0;
+	margin:10px 0 10px 0;
+	-moz-border-radius:5px 0 0 0;
+	-webkit-border-radius:5px 0 0 0;
+
+}
+
+#alertsGrid div, #alertsGrid table{width:100%!important; overflow-x:hidden;}
+
+#x-menu-el-alertsGrid {
+	background:none !important
+}
+
+.alerts-remove, #alertsGrid a {
+	color:#346699;
+	font-weight:bold
+}
+
+.informational-alert {
+	/*background:url(../images/mastercard/icn-bell.gif) no-repeat top left;*/
+	width:18px;
+	height:19px;
+}
+
+.warning-alert {
+	background:url(../images/mastercard/icn-warning.gif) no-repeat top left;
+	width:18px;
+	height:17px;
+}
+
+#alertsGrid p {
+	padding:0 0 5px 0
+}
+.menubar-dropdowns li {
+	color:#346699;
+}
+
+.menubar-dropdowns li table {
+	width:100% !important
+}
+
+.menubar-dropdowns .x-btn-mc, .menubar-dropdowns .x-btn-ml, .menubar-dropdowns .x-btn-mr {
+	/* overrides global btn styles */
+	background:none;
+}
+
+.menubar-dropdowns .x-btn-mc {
+	/* adjust this value to align the buttons & favs*/
+	width:260px;
+	zoom:1
+}
+
+.menubar-toaster {
+	background:#F8F9E9;
+	border:1px solid #999;
+	width:120px;
+	font-size:10px;
+	font-weight:bold;
+	font-family:Arial;
+	color:#346699;
+	padding:0px;
+	margin:0px;
+	position:relative;
+	left:30px
+}
+
+.menubar-dropdowns .x-btn-ml { 
+	display:none 
+}
+
+.menubar-dropdowns .x-btn-mc button {
+	text-align:left;
+	width:100%;
+	font-size:11px;
+	font-weight:bold;
+	font-family:arial;
+	padding-left:5px
+}
+
+.menubar-dropdowns .x-btn-mc em {
+	//background:transparent url(../images/mastercard/icn-favs-dropdowns.gif) no-repeat center right;
+	padding-right:20px;
+}
+
+.menubar-dropdowns .tools-fake-header {
+	background:transparent url(../images/mastercard/bg-modal-list.gif) repeat-x top left;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	margin-top:5px
+	
+}
+
+#toolsMenu .x-menu-list-item-indent{padding:0 0 4px 0!important; border-bottom:none!important;}
+
+.tools-fake-header button {
+	color:#fff !important;
+	position:relative;
+	left:5px
+}
+
+.menubar-dropdowns .tools-fake-header em {
+	background-image:none
+}
+
+
+/*** header nav ***/
+
+
+/* first push elements down using top row of buttons constructs */
+
+.header-nav .x-btn-tl, .header-nav .x-btn-tr, .header-nav .x-btn-tc {
+	height:34px
+}
+
+/* hide bottom row to have menus bump up against the tab */
+
+.header-nav .x-btn-bl, .header-nav .x-btn-bc, .header-nav .x-btn-br {
+	display:none
+}
+
+/*Widen left and right tab cells to accomodate new design.*/
+.header-nav .x-btn-ml, .header-nav .x-btn-mr{
+	width:5px;
+}
+
+.header-nav .x-btn-menu-active .x-btn-ml {
+	/*width:3px;
+	height:28px;
+	background:url(../images/mastercard/btn-top-nav-ml.gif) no-repeat top left*/
+	width:5px;
+	height:25px;
+	background:transparent url(../images/mastercard/bg-prefTabLeft-highlight.gif) bottom left no-repeat;
+}
+
+.header-nav .x-btn-menu-active .x-btn-mr {
+	/*width:3px;
+	height:28px;
+	background:url(../images/mastercard/btn-top-nav-mr.gif) no-repeat top left*/
+	width:5px;
+	height:25px;
+	background:transparent url(../images/mastercard/bg-prefTabRight-highlight.gif) bottom left no-repeat;
+}
+
+.header-nav .x-btn-menu-active .x-btn-mc  {
+	/*height:28px;
+	background:url(../images/mastercard/btn-top-nav-mc.gif) repeat-x top left;*/
+	height: 25px;
+	background:transparent url(../images/mastercard/bg-prefTabCenter-highlight.gif) top left repeat-x;
+}
+
+.header-nav .x-btn-mc  {
+	height:28px
+}
+
+.header-nav .x-btn-mc button {
+	font-size:10px;
+	color:#666665;
+	font-family:Verdana, sans-serif;
+	margin-top:7px;
+	font-weight:normal
+}
+
+.header-nav .x-btn-menu-active .x-btn-mc button  {
+	color:#fff;
+}
+
+
+/* internal utility menu styles */
+
+#menubar .x-menu-floating {
+	visibility:hidden
+}
+
+.utilMenu .x-menu-floating {
+	    background: url(../images/mastercard/bg-util-menu.gif) repeat;
+		border:1px solid #5C5C5C;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;
+		-webkit-box-shadow:1px 1px 10px #999;
+		-moz-box-shadow:1px 1px 10px #999;
+		font-size:11px;
+		font-weight:normal;
+		color:#333
+}
+
+.utilMenu .x-tab-strip-wrap {
+	margin:10px 0 10px 0;
+}
+
+.utilMenu .x-tab-strip-wrap li {
+	width:auto
+}
+
+.utilMenu .x-tab-strip-wrap span {
+	text-align:center;
+	width:auto;
+	margin:auto 5px auto 5px
+}
+
+.utilMenu .my-account-form {
+	position:relative;
+	left:15px
+}
+
+.utilMenu .my-account-form label {
+	font-weight:bold;
+	color:#333
+}
+
+.utilMenu .my-account-form input {
+	border:0px;
+	color:#333;
+	font-weight:normal;
+	font-size:11px;
+	opacity:1;
+	background:transparent;
+}
+
+.x-tree-node-expanded .x-tree-node-el {
+	background:none !none
+}
+
+/**** task-panel styles ****/
+
+#task-panel #button-area {
+	width:30px !important
+}
+
+#task-panel #button-area button{
+	width:20px;
+	
+}
+ 
+ /*COPYRIGHT*/
+#copyright-area{
+	float:right;
+}
+#copyright-area a{color:#999; font:10px Arial bold; text-decoration:none;}
+
+#task-panel {
+	border:0;
+	margin:0;
+	background:#ccc url(../images/bg-task-panel.gif) repeat-x top left !important;
+	overflow:hidden;
+	height:22px !important
+}
+
+#task-panel .x-btn-group {
+	display:block;
+	height:22px !important
+}
+
+#task-panel .x-btn-split{
+	text-align: left;
+}
+
+#task-panel .x-btn-split button {
+	font-size:10px;	
+	position:relative;
+	top:-1px
+}
+
+#task-panel .x-btn-tl, #task-panel .x-btn-tr, #task-panel .x-btn-tc  {
+	height:3px !important;
+}
+
+#task-panel .x-btn-ml {
+	background:url(../images/mastercard/btn-ml-appbar.png) no-repeat top left !important;
+	width:6px;
+	height:16px
+} 
+
+#task-panel .active-win .x-btn-ml {
+	background:url(../images/mastercard/btn-ml-appbar-active.png) no-repeat top left !important;
+	width:6px;
+	height:16px
+} 
+
+#task-panel .x-btn-mr {
+	width:16px;
+	background:url(../images/mastercard/btn-mr-appbar.png) no-repeat top left !important;
+	height:16px
+}
+
+#task-panel .active-win .x-btn-mr {
+	width:16px;
+	background:url(../images/mastercard/btn-mr-appbar-active.png) no-repeat top left !important;
+	height:16px
+}
+
+#ux-taskbuttons-panel .x-btn-mc {
+	background:url(../images/mastercard/btn-mc-appbar.png) repeat-x top left !important;
+	height:16px
+}
+#ux-taskbuttons-panel .active-win .x-btn-mc {
+	background: transparent url(../images/mastercard/bg-modal-list.gif) repeat-x scroll left top !important;
+}
+#ux-taskbuttons-panel .active-win .x-btn-mc button {
+	color: #fff !important;
+}
+#ux-taskbuttons-panel .active-win .x-btn-mc em {
+	background: transparent url(../images/mastercard/btn-x-utilities-white.gif) no-repeat scroll right center;
+}
+
+#ux-taskbuttons-panel .x-btn-mc em {
+	background:url(../images/mastercard/btn-close.gif) no-repeat center right;
+}
+
+#task-panel .x-btn-bl, #task-panel .x-btn-br, #task-panel .x-btn-bc  {
+	height:1px !important;
+	display:none
+}
+
+#task-panel #ataglancebutton .x-btn-mr, #task-panel #ataglancebutton .x-btn-ml, #task-panel #ataglancebutton .x-btn-tc, #task-panel #ataglancebutton .x-btn-tl, #task-panel #ataglancebutton .x-btn-tr, #task-panel #ataglancebutton .x-btn-bl, #task-panel #ataglancebutton .x-btn-bc, #task-panel #ataglancebutton .x-btn-br  { display:none }
+
+#task-panel .x-panel-tl, #task-panel .x-panel-tm, #task-panel .x-panel-tr { height:0px; border:0 }
+#task-panel .x-panel-bl, #task-panel .x-panel-bc, #task-panel .x-panel-br { height:0px; border:0 } 
+
+
+/** prefs panel **/
+
+.customer-support-box {
+	background:url(../images/mastercard/bg-post-it.png) no-repeat top left;
+	padding:15px 10px 0 15px;
+	margin:0 10px 0 0;
+	height:140px;
+}
+
+.customer-support-box span {
+	color:#600;
+	font-size:12px;
+	font-weight:bold;
+	width: 108px;
+}
+
+.customer-support-box p { 
+	color: #666;
+	font-size:11px;
+	font-weight: normal;
+	line-height: 16px;
+	padding: 10px 0 10px 0;
+	width: 108px;
+}
+
+/*MY ACCOUNT PANEL*/
+.my-account-form #account-email{width:225px!important;}
+
+#x-form-el-account-name, #x-form-el-account-title, #x-form-el-account-country{
+	width:220px !important; 
+	padding-bottom:12px; 
+	margin-bottom:12px; 
+	background:transparent url(../images/mastercard/divider.gif) bottom left repeat-x;	
+}
+/**/
+
+
+/*CUSTOMIZATION PANEL*/
+#customizationPanel {
+	position:relative;
+	padding:0 10px 0 10px;
+	float:left
+}
+
+#customizationPanel button {
+	font-size:11px;
+	color:#333;
+	font-weight:bold;
+	font-family:Arial
+}
+
+#customizationPanel #x-form-el-preferences-applicationList .x-form-check-group{width:280px!important;}
+#customizationPanel #x-form-el-preferences-applicationList .x-form-check-group .x-form-check-wrap{width:260px!important;}
+#customizationPanel #x-form-el-preferences-applicationList .x-form-check-group label{width:inherit!important;}
+
+#customizationPanel .collapsed-panel .x-panel-header {
+		border:0;
+		font-size:14px;
+		font-weight:bold;
+		color:#333;
+		font-family:Arial;
+		background:transparent url(../images/mastercard/divider.gif) repeat-x bottom left;
+}
+
+#customizationPanel .x-panel-header {
+		border:0;
+		font-size:12x;
+		font-weight:bold;
+		color:#FFF;
+		font-family:Arial;
+		padding:5px 0 5px 5px;
+		margin:5px 0 5px 0;
+		background:url(../images/mastercard/bg-modal-list.gif) repeat-x top left;
+		-moz-border-radius:5px;
+		-webkit-border-radius:5px;	
+}
+
+#customizationPanel .collapsed-panel .x-panel-header span {
+	padding-left:10px;
+	background:url(../images/mastercard/list-arrow-right.gif) no-repeat 0px 4px;
+}
+
+#customizationPanel .x-panel-header span {
+	padding-left:15px;
+	background:url(../images/mastercard/list-arrow-down-white.gif) no-repeat 1px 6px;
+}
+
+#customizationPanel  .x-toolbar-right-ct {
+	visibility:hidden
+}
+
+#customizationPanel .x-form-field-wrap {
+	clear:both;
+	margin:0 0 5px 0;
+	padding:0;
+	position:relative;
+	left:-104px;
+}
+
+#customizationPanel .x-form-field-wrap input {
+	background:#fff url(../images/mastercard/bg-input-fields.gif) repeat-x top left;
+	width:250px !important
+	font-size:11px;
+}
+
+.customizationMenu {
+	position:relative;
+	left:-10px;
+}
+
+.customizationMenu button {
+	font-size:11px;
+	font-family:Arial;
+	font-weight:bold
+}
+
+.customizationMenu em {
+	padding:0 0 0 20px;
+}
+
+.app-checkboxes {
+	clear:both;
+	padding:15px 0 0 0;
+	margin:auto;
+	position:relative;
+	left:-100px
+}
+#mcLogo {
+		background:url(../images/logo.png) no-repeat top right;
+		verticalAlign: 'top';
+		position:'relative';
+		top:'1px';
+}
+
+.customization-demo-video {
+	float:left;
+	background:url(../images/mastercard/btn-customization-demo.png) no-repeat center center;
+	width:200px;
+	height:150px;
+	padding:22px 0 0 0;
+	text-indent:-9999px;
+	opacity:0.6;
+	filter:(alpha=60);
+	cursor:pointer
+}
+
+.btn-expand-all em {
+	padding:0 0 0 20px;
+	background:url(../images/mastercard/icon-expand-all.gif) no-repeat 0px 5px;
+}
+
+.btn-collapse-all em {
+	padding:0 0 0 20px;
+	background:url(../images/mastercard/icon-collapse-all.gif) no-repeat 0px 5px;
+}
+
+.print-toolbar em {
+	padding:0 0 0 20px;
+	background: url(../images/mastercard/btn-print.gif) no-repeat 0px 3px;
+}
+
+#gettingstartedcontainer .print-toolbar em {
+	position: relative;
+	top: -5px;
+}
+#gettingstartedcontent>.x-panel-tbar{border-bottom: 1px solid #9c9c95;}
+
+#faqPanel td.x-btn-mc {
+	vertical-align:bottom!important;
+}
+.help-apps-lists {
+	margin:0 10px 0 10px;
+	white-space:normal;
+}
+
+.help-apps-lists .x-tree-node-expanded {
+	background:transparent url(../images/mastercard/bg-modal-list.gif) repeat-x scroll left top;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;	
+}
+
+.help-apps-lists .x-tree-node-expanded a span {
+	color:#fff
+}
+
+/* Utilities Menu */
+	#topNav .x-toolbar-cell{ vertical-align:bottom;}
+
+	.x-utilities-toolbar{border: none!important;}
+	#x-menu-preferences .x-utilities-toolbar{padding-right:12px; padding-bottom:4px;}
+	#x-panel-help .x-utilities-toolbar{padding-right:12px; padding-bottom:4px;}
+	#contactsTab .x-utilities-toolbar{padding-right:12px; padding-bottom:6px;}
+	
+	/*
+	.x-utilities-toolbar  .x-btn-text{background: transparent url(../images/mastercard/btn-x-utilities.gif) center center no-repeat;}
+	.my-account-form *{overflow-x:visible;}
+	#x-panel-account .btn-ok{position:absolute; top:10px; left:325px; display:block; z-index:900000!important; border:1px solid red;}*/
+	
+	#x-panel-help .x-toolbar-right-ct{
+		/*padding-right: 20px;*/
+		padding-right:3px
+	}
+	
+/* End Utilities Menu */
+
+/* pulls out the embedded images in utilities lists */
+.help-apps-lists .x-tree-node-indent img {
+	display:none
+}
+
+ .help-apps-lists .x-tree-elbow-end-plus{
+	background:transparent url(../images/mastercard/list-arrow-right.gif) no-repeat scroll 4px 4px!important;
+ }
+
+.utilMenu .x-tree-arrows .x-tree-elbow-minus,  .help-apps-lists .x-tree-arrows .x-tree-elbow-end-minus{
+    background:transparent url(../images/mastercard/list-arrow-down-white.gif) no-repeat 4px 9px;
+
+}
+
+.help-apps-lists a {
+	font-size:11px;
+	font-family:Arial;
+	color:#333;
+	font-weight:bold
+}
+
+.util-text-box {
+	background:#FBFCF3 url(../images/mastercard/bg-taskguide.jpg) repeat-x top left;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border:1px solid #FFF;
+	margin:0 10px 0 0;
+	height:380px;
+	overflow:auto;
+	padding-right:10px;
+	white-space:normal !important;
+	overflow-x: hidden !important;
+}
+
+.util-text-box  p {
+	width:90%;
+	white-space:normal
+}
+
+#generalTab { width:490px }
+
+/* utility menu faqs */
+#faqPanel .xtb-sep{
+	background: transparent url(../images/mastercard/tb-separator.gif) top left no-repeat;
+}
+
+.faq-list .faq-answer-expanded {
+	background:#fff url(../images/mastercard/bg-content-started.jpg) repeat-x top left;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	margin-bottom:10px;
+	border:1px solid #999;
+}
+
+.faq-list .x-panel-collapsed .x-panel-header, .faq-list .x-panel-header {
+	font-weight:bold;
+	font-family:Arial;
+	font-size:12px;
+	border:0px;
+	background: none;
+}
+
+.faq-list .x-panel-header {
+	-moz-border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+}
+
+.faq-list .x-panel-body {
+	margin:5px 10px 5px 10px;
+	padding:0 10px 5px 0;
+	font-size:11px;
+	width:480px !important;
+	white-space: normal !important
+}
+
+.faq-list .x-panel-collapsed .x-tool-toggle  {
+	background:transparent url(../images/mastercard/list-arrow-right.gif) no-repeat scroll 0 4px;
+	float:left;
+	margin:0 10px 0 0;
+	width:6px
+}
+
+.faq-list .x-tool-toggle  {
+	background:transparent url(../images/mastercard/list-arrow-down.gif) no-repeat scroll 0 5px;
+	float:left;
+	margin:0 10px 0 0;
+	width:10px
+}
+
+/* feedback */
+
+.feedback-container {
+	padding-left:10px;
+	margin:auto;
+	font-family:Arial !important
+}
+
+.feedback-textarea {
+	background:#fff url(../images/mastercard/bg-content-started.jpg) top left repeat-x !important;
+	width:320px !important;
+	border:1px solid #fff !important;
+	font-size:11px;
+	font-family:Arial;
+	padding:10px !important;
+	height:200px !important;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;	
+	margin-bottom:10px
+}
+
+.feedback-radiogroup {
+	width:260px !important;
+	margin:auto !important;
+}
+
+/* contact us */
+
+.contactus-container {
+	margin:auto;
+	padding-left:10px;
+	white-space:normal
+}
+
+.contactus-textarea {
+	background:#fff url(../images/mastercard/bg-content-started.jpg) top left repeat-x !important;
+	width:480px !important;
+	border:1px solid #fff !important;
+	font-size:11px;
+	font-family:Arial;
+	padding:10px !important;
+	height:105px !important;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;	
+	margin-bottom:10px;
+}
+
+/*FAILED SELECTION STYLES
+::-moz-selection{
+	background: #000000!important;
+}
+
+::selection {
+	background: #000000!important;
+}*/
+
+.contactus-radiogroup {
+	width:500px !important;
+	margin:8px auto auto auto !important;
+}
+
+.contactus-container  .feedback-textarea {
+	width:460px !important;
+	margin-top:10px;
+	height:100px !important
+}
+
+.contactus-container #contactusEmailGroup, .contactus-container #contactusPhoneGroup {
+	width:220px;
+	float:left;
+	padding:10px 0 0 0;
+	margin-right:20px
+}
+
+.radiogroupWrapper label{display:block; font-weight:bold; margin-bottom:12px;}
+.radiogroupWrapper .x-form-check-wrap{width:50%; float:left;}
+.radiogroupWrapper .x-form-check-wrap input{display:inline!important; width:auto!important;}
+
+.contacts-tree .x-tree-elbow, .contacts-tree .x-tree-elbow-end {
+	display:none;
+}
+
+.contacts-tree .x-tree-node a span {
+	white-space:normal;
+	padding-left:0px
+}
+
+.contacts-tree .x-tree-node-el {
+	line-height:14px;
+	padding:4px 3px;
+}
+
+/* product catalog */
+
+.catalog-step1, .catalog-in-cart {
+	background:url(../images/mastercard/checkmark-catalog.gif) no-repeat top left;
+	display:block;
+	float:left; 
+	width:20px!important;
+	height:18px!important;
+}
+
+.catalog-in-cart {
+	background:url(../images/mastercard/in-cart-catalog.gif) no-repeat;
+}
+
+
+.cat-hdr-1 {
+	background:url(../images/mastercard/hdr-checkout1.gif) top left no-repeat;
+	width: 271px;
+	height: 43px
+}
+
+.cat-hdr-2 {
+	background:url(../images/mastercard/hdr-checkout2.gif) top left no-repeat;
+	width: 271px;
+	height: 43px
+}
+
+.application-wrap, .cart-wrap {
+	overflow:hidden;
+	border-bottom:1px solid #CFCFCF;
+	border-left:1px solid #CFCFCF;
+	padding:10px;
+	font-size:11px;
+	font-family:Arial;
+	zoom:1
+}
+
+.application-wrap{
+
+}
+
+.cart-wrap {
+	background:#fff !important;
+	border: 1px solid #CFCFCF;
+	margin: 0 10px 10px 10px;
+	padding:0;
+}
+
+.cart-wrap td {
+	vertical-align:top;
+}
+
+.cart-wrap h2, .cart-wrap p{
+	position:static!important;
+	display:block!important;
+	padding:10px;
+}
+
+.cart-wrap p{font-size:11px;}
+
+td.cart-quad1, td.cart-quad2{
+	width:25%!important;
+	border-right:1px solid #CFCFCF;
+}
+
+td.cart-quad1{
+	width:50%!important;
+}
+
+td.cart-quad3{
+	padding-top:20px;
+	text-align:center;
+}
+
+
+.cart-remove-button {
+	background:url(../images/mastercard/btn-remove-cart.gif) no-repeat top left;
+	border:0;
+	width:19px;height:19px;
+	text-indent:-9999px;
+	cursor:pointer
+}
+
+
+.application-wrap{
+	padding: 6px 10px 11px 10px;
+}
+
+.application-wrap h2, .cart-wrap h2 {
+	font-size:14px;
+	font-weight:bold;
+	/*color:#447296;*/
+	color: #000;
+	display:inline;
+	position:relative;
+	top:-2px;
+}
+
+.quad1 h2.step-with-image{left:2px;}	
+
+.application-wrap p {
+	color: #A0A0A0;
+	padding:2px 0 2px 0 !important;
+}
+
+.application-wrap .quad1 p {
+	width: 360px;
+}
+
+.application-wrap .quad2 p {
+	width: 180px;
+}
+
+.application-wrap span {
+	color:#000;
+	font-weight:bold;
+}
+
+.quad1, .quad2, .quad3 {
+	float:left;
+	background:transparent;
+	
+}
+
+.quad1 {
+	/*width:50%;*/
+	width:385px;
+	padding:0 0 0 20px;
+}
+
+.quad1 a {
+	text-decoration:none;
+	font-size:11px;
+	color:#333;
+	line-height:20px
+} 
+
+.quad1 a:hover {
+	text-decoration:underline
+}
+
+.quad1 p{clear:left;}
+
+.quad2 {
+	/*width:20%;*/
+	width: 190px;
+	padding:0 0 0 10px
+}
+
+.quad3 {
+	/*width:20%;*/
+	width: 165px;
+	padding:0 0 0 10px
+}
+
+.quad3 p {
+	font-style:italic
+}
+
+.catalog-add-cart {
+	font-weight:bold;
+	font-size:11px;
+	font-family:arial;
+	color:#404040;
+	text-align:center;
+	width:84px;
+	background: url(../images/mastercard/btn-ok-mc.gif) repeat-x top left;
+	height:22px;
+	line-height:22px;
+	margin:5px 0 0 0;
+	cursor:pointer
+}
+
+.catalog-hdr {
+	background:url(../images/mastercard/bg-catalog-hdr.jpg) repeat-x top left;
+	height:28px;
+	margin:0; padding:0
+}
+
+.cart-wrap {
+	clear:both
+}
+
+/*#cartpanel.cartpanel-disabled .x-tool-expand-east{visibility:hidden;}
+#cartpanel .x-tool-expand-east{visibility:visible;}*/
+
+#maincatalogitemspanel{
+}
+
+#catalogitemsdataview{
+	background:#fff url(../images/mastercard/bg-productCatalog.gif) top left repeat-y;
+}
+
+#maincatalogitemspanel .x-toolbar-left, #maincatalogitemspanel .x-toolbar-right {
+	background:url(../images/mastercard/bg-util-menu.gif) repeat top left;
+	padding:10px 10px 0 10px;
+}
+
+#maincatalogitemspanel .x-toolbar-ct .x-btn-tl, #maincatalogitemspanel .x-toolbar-ct .x-btn-tc, #maincatalogitemspanel .x-toolbar-ct .x-btn-tr, #maincatalogitemspanel .x-toolbar-ct .x-btn-bl, #maincatalogitemspanel .x-toolbar-ct .x-btn-bc, #maincatalogitemspanel .x-toolbar-ct .x-btn-br {
+	display:none !important
+}
+
+#maincatalogitemspanel label {
+	font-size:12px;
+	font-family:Arial;
+	color:#333;
+	font-weight:bold;
+	margin:0 10px 0 0
+}
+
+#maincatalogitemspanel input {
+	background:#fff url(../images/mastercard/bg-input-fields.gif) repeat-x top left;
+	font-size:11px
+}
+
+.app-buttons {
+	margin:7px 0 0 7px;
+	padding:0;
+	opacity:0.7;
+}
+
+.app-buttons.x-item-disabled {
+	opacity:1;
+}
+
+.app-buttons button {
+	font-size:10px !important;
+}
+
+.app-buttons .x-btn-mc {
+	background:url(../images/mastercard/btn-catalog-mc.gif) top left repeat-x;
+	height:17px;
+	line-height:18px;
+}
+
+.app-buttons .x-btn-ml {
+	background:url(../images/mastercard/btn-catalog-ml.gif) top right no-repeat;
+	 width:2px;
+	height:17px
+}
+.app-buttons .x-btn-mr {
+	background:url(../images/mastercard/btn-catalog-mr.gif) top left no-repeat;
+	width:2px;
+	height:17px	
+}
+
+#productcatalogsearchbutton .x-btn-mc {
+	text-indent:-9999px;
+	background:url(../images/mastercard/btn-catalog-search.gif) no-repeat top left;
+	width:17px; height:17px
+}
+
+#productcatalogsearchbutton .x-btn-ml { display:none }
+
+#productcatalogsearchfield {
+	height:17px;
+	position:relative;
+}
+
+.no-applications {
+	text-align:center;
+	font-weight:bold;
+	font-size:14px;
+	width:100%;
+	padding-top:20px;
+	height:100%;
+	background:#fff;
+	font-family:Arial
+}
+
+#purchase {
+	/* use this to add far right stick that never moves */
+	margin:0;
+	padding:0;
+}
+
+#cartpanel {
+	background:#fff;
+	padding:0px;
+	margin:0x;
+	position:relative;
+}
+
+#cartpanel .x-panel-ml {
+	padding:0px
+}
+
+#cartpanel-xcollapsed {
+	width:30px !important;
+	position:relative
+
+}
+
+.cart-contents {
+	font-family:Arial;
+	color:#666;
+	margin-top:6px;
+	margin-left:20px;
+	font-size:13px;
+	font-weight:bold;
+	width:100%;
+	text-align:left;
+	
+}
+
+#maincatalogitemspanel .catalog-print button { 
+	font-size:10px !important
+}
+
+#maincatalogitemspanel .catalog-print em { 
+	background:url(../images/mastercard/catalog-print.gif) no-repeat bottom left;
+	padding: 0 0 0 20px;
+	line-height:100%
+}
+
+#catalogviewcartbutton button{
+	font-size:10px !important
+}
+
+#catalogviewcartbutton em {
+	background:url(../images/mastercard/in-cart-catalog.gif) no-repeat bottom left;
+	padding: 0 0 0 20px;
+}
+
+#checkoutpanel{
+	padding:20px 10px 16px 10px;
+}
+
+#checkoutpanel, #confirmFormContainer, #confirmpanel {
+	background:#fff
+}
+
+#checkoutpanel .x-panel-header, #confirmFormContainer .x-panel-header{
+	background:transparent url(../images/mastercard/bg-catalog-checkout.gif) repeat-x top left;
+	font-size:10px;
+	font-weight:bold;
+	font-family:Arial;
+	height:18px;
+	overflow:hidden;
+	border:0;
+	line-height:8px
+}
+
+#checkoutpanel .x-tool-toggle, #confirmFormContainer .x-tool-toggle {
+	background:url(../images/mastercard/btn-catalog-down.gif) no-repeat top left;
+	width:6px;height:5px;
+	float:left;
+	position:relative;
+	top:2px;
+	padding:0 5px 0 0
+}
+
+#checkoutpanel .x-panel-collapsed .x-tool-toggle, #confirmFormContainer .x-panel-collapsed .x-tool-toggle {
+	background:url(../images/mastercard/btn-catalog-right.gif) no-repeat top left;
+	height:6px;
+}
+
+#checkoutpanel .x-fieldset, #confirmFormContainer .x-fieldset {
+	border:0;
+	font-size:11px
+}
+
+#checkoutpanel .x-column-inner, #confirmFormContainer .x-column-inner {
+	margin:0 10px 10px 10px;
+	/*padding:0 0 10px 0; EXTJS will not take padding into account when calculating columnWidths so margins must be used in place of padding*/
+}
+
+#checkoutpanel .x-form-item {
+	margin:0 0 5px 0
+}
+
+#checkoutpanel .x-form-item input  {
+	background:url(../images/mastercard/bg-input-fields.gif) repeat-x top left;
+}
+
+.btn-panel {
+	display:block;
+	width:15px;
+	height:16px;
+	background:url(../images/mastercard/btn-collapse-panel.gif) no-repeat top left;
+	position:absolute;
+	left:0px;
+	top:6px
+}
+
+/* global cancel/affirmative buttons */
+
+.btn-cancel  .x-btn-ml {
+	background:url(../images/mastercard/btn-cancel-ml.gif) no-repeat top left;
+	height:22px;
+	width:3px
+}
+
+.btn-cancel  .x-btn-mr {
+	background:url(../images/mastercard/btn-cancel-mr.gif) no-repeat top left;
+	height:22px;
+	width:3px
+}
+
+.btn-cancel .x-btn-mc {
+	height:22px;
+	background:url(../images/mastercard/btn-cancel-mc.gif) repeat-x top left;
+	vertical-align:middle
+}
+
+.btn-cancel .x-btn-mc button, .btn-ok .x-btn-mc button {
+	font-weight:bold;
+	font-size:10px;
+	line-height:20px;
+	font-family:Arial;
+	text-align:center;
+	padding:0 4px 0 4px;
+	/*text-transform:uppercase;*/
+	width:100%;
+}
+
+.btn-ok  .x-btn-ml {
+	background:url(../images/mastercard/btn-ok-ml.gif) no-repeat top left;
+	height:22px;
+	width:3px
+}
+
+.btn-ok  .x-btn-mr {
+	background:url(../images/mastercard/btn-ok-mr.gif) no-repeat top left;
+	height:22px;
+	width:3px
+}
+
+.btn-ok .x-btn-mc {
+	height:22px;
+	background:url(../images/mastercard/btn-ok-mc.gif) repeat-x top left;
+	vertical-align:middle
+}
+
+
+.general-divider {
+	background:url(../images/mastercard/divider.gif) repeat-x bottom left;
+	padding-bottom:10px;
+}
+
+.general-divider-top {
+	background:url(../images/mastercard/divider.gif) repeat-x top left;
+	padding-top:10px;
+}
+
+.general-input-background {
+	background:#fff url(../images/mastercard/bg-input-fields.gif) repeat-x top left;
+}
+
+/* button overrides */
+
+#ataglancebutton .x-btn-mc {
+	background:none !important
+}
+
+.jay-z {
+	/* If you're having girl problems I feel bad for you son */
+	/* I got 99 problems but a bitch ain't one */
+	z-index: 99999 !important;
+}
+
+.opaque {
+	opacity: 1 !important;
+}
+
+/* welcome message */
+
+.welcomeMessage {
+	position:absolute;
+	top:20px;
+	right:25px;
+	width:400px;
+	text-align:right;
+	font-size:10px !important;
+}
+
+#profileText {
+	font-weight:bold;
+	color:#790100;
+}
+
+#customerTypeText {
+	padding-left:10px;
+	background:url(../images/mastercard/welcome-divider.gif) no-repeat 5px 1px;
+}
+
+/* references + getting started */
+
+#cv_controls_News, #cv_controls_References, #cv_controls_Training {
+/* 	background:url(../images/mastercard/bg-sticks.jpg) top right repeat-y; */
+/* 	padding:0 15px 0 0 */
+}
+
+.cv_historyContainer .x-panel-header {
+	background:#fff url(../images/mastercard/bg-history-hdr.jpg) repeat-x top left;
+	height:12px;
+	font-size:9px;
+	text-align:center;
+	color:#fff;
+	margin:0;
+	padding:0;
+	font-face:Arial;
+	font-weight:bold;
+}
+
+.cv_historyContainer .x-tool-toggle {
+	background:url(../images/mastercard/btn-hide-history.gif) no-repeat 0 4px
+}
+
+#cv_historyContainer_News-xcollapsed, #cv_historyContainer_References-xcollapsed, #cv_historyContainer_Training-xcollapsed  {
+	background:#fff url(../images/mastercard/bg-history-hdr.jpg) repeat-x top left;
+}
+
+#cv_historyContainer_News-xcollapsed .x-tool-expand-south, #cv_historyContainer_References-xcollapsed .x-tool-expand-south, #cv_historyContainer_Training-xcollapsed .x-tool-expand-south {
+	background:url(../images/mastercard/btn-show-history.gif) no-repeat 0 1px
+}
+
+.cv_clearAll .x-btn-mc button {
+	color:#3F698F;
+	font-weight:bold;
+	font-size:11px;
+	font-family:arial;
+	padding-left:18px
+}
+
+.cv_clearAll .x-btn-mc em {
+	background:url(../images/mastercard/btn-clear-all.gif) no-repeat top left;
+}
+
+.cv_historyItems .x-btn-mc {
+	background:url(../images/mastercard/icon-history-doc.gif) no-repeat top center;
+	width:20px;
+	height:23px;
+	padding-left:18px
+}
+
+.cv_historyItems .x-btn-mc button {
+	opacity:0;
+	-moz-opacity:0;
+	filter:(alpha=0);
+}
+
+.cv_controls .x-tab-panel-header {
+	background:url(../images/mastercard/bg-catalog-hdr.jpg) repeat-x top left;
+	height:28px;
+	margin:0; padding:0
+}
+
+.cv_controls ul.x-tab-strip-top, .cv_controls .x-tab-strip-wrap {
+	background:none !important;
+	margin-top:6px
+}
+
+.cv_controls .x-tab-strip-active span.x-tab-strip-text {
+	/*background:transparent !important*/
+}
+
+.cv_controls.x-tab-strip-text{
+	font-size:10px!important;
+}
+
+.cv_controls .x-tab-strip-text {
+	font-size:10px !important
+}
+
+/*ul.x-tab-strip li{display:list-item!important; border:1px solid red!important;}*/
+
+.cv_controls .x-tab-strip-active .x-tab-left{
+	background:transparent url(../images/mastercard/bg-stripActive-left.gif) top left no-repeat;
+}
+
+.cv_controls .x-tab-strip-active .x-tab-right{
+	background:transparent url(../images/mastercard/bg-stripActive-right.gif) top right no-repeat;
+}
+
+.cv_controls .x-tab-strip-active .x-tab-strip-inner{
+	background:transparent url(../images/mastercard/bg-stripActive-middle.gif) top left repeat-x;
+}
+
+.cv_controls .x-tab-strip span.x-tab-strip-text {
+	line-height:3px !important;
+	color:#000;
+	padding:0 2px 0 2px 0
+}
+
+.cv_controls .x-tab-left {
+	background:url(../images/mastercard/btn-catalog-ml.gif) top left no-repeat;
+	padding-left:2px;
+	height:17px
+}
+
+.cv_controls .x-tab-right {
+	background:url(../images/mastercard/btn-catalog-mr.gif) top right no-repeat;
+	height:17px
+}
+
+.cv_controls .x-tab-strip-inner {
+	background:url(../images/mastercard/btn-catalog-mc.gif) top left repeat-x;
+	height:17px !important;
+	line-height:18px;
+}
+
+.cv_controls .x-tree-node, .getting-started-list .x-tree-node {
+	font-size:11px;
+	font-weight:bold;
+}
+
+.cv_controls ul li.x-tree-node span,  .getting-started-list ul li.x-tree-node span{
+	color:#000
+}	
+
+.cv_controls ul li ul li.x-tree-node {
+	background:#fff;
+}
+
+.cv_controls .x-tree-arrows .x-tree-elbow  {
+	background:url(../images/mastercard/icon-ref-list.gif) no-repeat center center;
+	min-height:10px
+}
+
+.cv_controls ul li ul li.x-tree-node span {
+	color:#447296
+}
+
+.cv_controls .x-tab-scroller-right {
+	background:url(../images/mastercard/btn-scroll-right-ref.gif) no-repeat 5px 16px;
+}
+
+.cv_controls .x-tab-scroller-left {
+	background:url(../images/mastercard/btn-scroll-left-ref.gif) no-repeat 10px 16px;
+}
+
+.cv_controls .x-tree-node-collapsed .x-tree-node-icon, .cv_controls .x-tree-node-expanded .x-tree-node-icon, .cv_controls .x-tree-node-leaf .x-tree-node-icon {
+	display:none
+}
+
+.cv_display {
+	background:url(../images/mastercard/desktop.jpg) top left;
+}
+
+/*Requrired for CV vbox layout!*/
+.cv_display .print-toolbar .x-box-inner{width: inherit!important; overflow-x:visible!important;}
+
+#cv_print_button{position:relative!important; top:20px;}
+
+.cv_display .x-panel-body {	
+	border:1px solid #999;
+	border-bottom:0px;
+	background:#fff;
+	margin-left:10px;
+	margin-bottom:5px;
+	width:96% !important;
+	font-family:arial
+ }
+ 
+ .cv_display .x-panel-body h1 {
+	padding:5px 0px 10px 10px;
+ }
+
+ .cv_display .x-panel-tbar  {	
+	padding:10px
+ }
+ 
+ .cv_display .x-panel-tbar label {
+ 	font-size:16px;
+	font-weight:bold;
+	font-family:Arial;
+	color:#000;
+}
+
+.cv-container {
+	background:transparent url(../images/mastercard/bg-general-stripes.gif) repeat top left;
+}
+
+#gettingstartedcontainer, #gettingstartedcontent {
+/* 	This should get replaced by spacer panels */
+	background: url(../images/mastercard/bg-general-stripes.gif) repeat;
+}
+
+#gettingstartedtree {
+/* 	background:url(../images/mastercard/bg-sticks.jpg) repeat-y top right; */
+}
+
+.getting-started-list .x-tree-node {
+	background:#DEDEDE url(../images/mastercard/bg-xtree-started.jpg) repeat-x top left;
+}
+
+.getting-started-list .x-panel-bwrap {
+	margin:8px;
+}
+
+.getting-started-list ul, .cv-menu-container ul {
+	border:1px solid #999;
+	border-bottom:0px;
+	width:163px;
+}
+
+.cv-menu-container .x-tab-strip {
+	border:0px
+}
+
+.cv-menu-container ul {
+	width:203px
+}
+
+.getting-started-list .x-tree-selected, .cv-menu-container .x-tree-selected {
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	background: transparent url(../images/mastercard/bg-modal-list.gif) repeat-x scroll left top !important
+}  
+
+.getting-started-list ul li ul, .cv-menu-container ul li ul {
+	border:0px
+}
+
+.getting-started-list .x-tree-node-el, .cv-menu-container .x-tree-node-el {
+	background-image: none;
+	border-bottom: 1px solid #999
+}
+
+.getting-started-list ul li ul .x-tree-node-el, .cv-menu-container ul li ul .x-tree-node-el {
+	border-bottom: 1px dotted #999
+}
+
+.getting-started-list ul li ul li.x-tree-node, .cv-menu-container t ul li ul li.x-tree-node {
+	background:#FFF;
+}
+
+.getting-started-list ul li ul li.x-tree-node span, .cv-menu-container ul li ul li.x-tree-node span {
+	color:#446E95
+}
+
+.getting-started-panels {
+}
+
+#gettingstartedcontent {
+	background:#fff url(../images/mastercard/bg-content-started.jpg) top left repeat-x;
+	padding:20px 20px 20px 20px;
+}
+
+.gettingstarted-title {
+	font-weight:bold;
+	font-size:14px
+}
+
+/* task guides */
+
+#taskguidescontainerarea {
+	background:transparent url(../images/mastercard/bg-util-menu.gif) repeat scroll 0 0;
+	padding-right:5px;
+	padding-left:5px
+}
+
+.task-content {
+	background:#fff;
+	border-left:1px solid #999;
+	border-bottom:1px solid #999;
+}
+
+#taskguidesinformationarea {
+	background:#fff;
+	border-right:1px solid #999;
+	border-bottom:1px solid #999;
+	padding:0 0 0 10px
+}
+
+.task-related .x-btn-tl, .task-related .x-btn-tr, .task-related .x-btn-tc, .task-related .x-btn-bl, .task-related .x-btn-bc, .task-related .x-btn-br, .task-related .x-btn-ml, .task-related .x-btn-mr {
+	display:none
+}      
+
+.task-help-block {
+	background:url(../images/mastercard/divider.gif) repeat-x top left;	
+	width:90%
+}
+
+.task-support {
+	font-size:11px;
+	padding:0 0 10px 0;
+	margin:0
+}
+
+.task-support span {
+	font-weight:bold;
+	color:#6C433F
+}
+
+.task-related .x-btn-mc { 
+	background:none;
+	height:0px !important;
+	padding:0; margin:0;
+	line-height:1px;
+}
+
+.task-related em {
+	background:#fff url(../images/mastercard/chevron-lists.gif) center right no-repeat;
+	padding-right:10px;
+}
+
+.task-related button {
+	color:#447296 !important
+}	
+
+.task-print {
+	background:#fff url(../images/mastercard/bg-taskguide.jpg) top left repeat-x;
+	border:1px solid #999 !important;
+	border-bottom:0 !important;
+}
+
+.task-print .x-toolbar-left, .task-print .x-toolbar-right  {
+	padding:15px 5px 0px 10px;
+}
+
+.task-print .x-toolbar-left label {
+	font-weight:bold;
+	font-size:14px
+}	
+	
+.task-related-hdr {
+	font-size:12px;
+	font-weight:bold;
+	padding:0;
+	margin:0;
+	line-height:230%
+}
+
+.task-steps {
+	margin:10px 0 10px 0;
+}
+
+.task-steps .x-btn-ml, .task-steps .x-btn-mr, .task-steps .x-btn-tl, .task-steps .x-btn-tr, .task-steps .x-btn-bl, .task-steps .x-btn-br { display:none } 	
+
+.task-steps .x-btn-mc {
+	background:transparent url(../images/mastercard/bg-circles-task.png) no-repeat top left;
+	width:38px;
+	height:29px;
+	padding:0;
+	margin:0
+}
+
+.task-steps-current .x-btn-ml {
+	display:block!important;
+	width:10px;
+	height:30px;
+	/*background:trasnparent url(../images/mastercard/bg-task-steps-left.png) top left no-repeat !important;*/
+	background:transparent url(../images/mastercard/bg-task-steps-left.png) 0px 3px no-repeat!important;
+}
+
+.task-steps-current .x-btn-mc {
+	background:transparent url(../images/mastercard/bg-task-steps-inner.png) repeat-x 0px 3px;
+	width:120px;
+	height:30px;
+	padding:0;
+	margin:0;
+	text-align:left;
+	overflow:visible!important;
+}
+
+.task-steps-current .x-btn-mc em{
+	position:relative; 
+}
+
+.task-steps-current .x-btn-mc span {
+	display:block;
+	text-align:center;
+	float:left;
+	padding-top:1px;
+	width:18px!important;
+	height:17px!important;
+	background:transparent url(../images/mastercard/bg-task-steps-circle.png) top left no-repeat;
+	margin-top:-1px;
+}
+
+.task-steps-current .x-btn-mr {
+	display:block!important;
+	width:10px;
+	height:30px;
+	background:transparent url(../images/mastercard/bg-task-steps-right.png) 0px 3px no-repeat!important;
+}
+
+.task-steps-current .x-btn-mc button {
+	color:#fff;
+	font-size:11px !important;
+	margin-top:7px !important;
+	text-align:left !important;
+}
+
+.task-steps .x-btn-mc button {
+	font-weight:bold;
+	font-size:13px;
+	margin-top:5px;
+}
+
+#taskguidesfeedbackpanel {
+	margin:0 0 0 10px;
+	width:90% !important
+}
+
+#taskguidesfeedbackpanel form {
+	width:90% !important
+}
+
+#taskguidesfeedbackpanel .x-fieldset {
+	border:1px solid #999;
+	border-radius:3px;
+	-moz-border-radius:3px;	
+	margin:10px 10px 0 0;
+	background:#eee
+}
+
+#taskguidesfeedbackpanel textarea {
+	background:#fff;
+	font-size:11px
+}
+	
+#taskguidescontainerarea .x-toolbar-right{
+	padding-right: 20px;
+}
+	
+/* stars favs */
+
+.menu-favorites-on .x-btn-mc em {
+	background:url(../images/mastercard/btn-remove-fav.gif) no-repeat center right;
+}
+.menu-favorites-off .x-btn-mc em {
+	background:url(../images/mastercard/icon-star-off.gif) no-repeat center right;
+}
+.favorites-items .x-btn-mc em {
+	background:url(../images/mastercard/btn-delete-fav-off.gif) center right no-repeat;
+}
+.favorites-items.x-btn-over .x-btn-mc em {
+	background:url(../images/mastercard/btn-delete-fav-on.gif) center right no-repeat;
+}
+
+.template-link-class {
+	background:url(../images/mastercard/btn-email-catalog.gif) no-repeat 0px 0px;
+	display:block;
+	height:20px;
+	padding:0 0 0 20px;
+	line-height:25px !important
+}	
+
+.template-link-class-update {
+	background:url(../images/mastercard/btn-update-catalog.gif) no-repeat 0px 0px;
+	display:block;
+	height:20px;
+	padding:0 0 0 21px;
+	line-height:25px !important;
+	font-size:11px
+}	
+
+/* MIKE'S ADDITIONS */
+.x-tree-selected {
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-background-clip:border;
+	-moz-background-inline-policy:continuous;
+	-moz-background-origin:padding;
+	background: transparent url(../images/mastercard/bg-modal-list.gif) repeat-x scroll left top;
+}
+
+.x-tree-selected a span {
+	color:#fff !important
+}
+
+/*AT A GLANCE*/
+#x-portlet-news, #x-portlet-spotlight, #x-portlet-marketing{padding-bottom:3px!important;}
+
+#ataglanceedit>.x-panel-header{border:none;}
+#ataglanceedit .x-panel-header-text{font:bold 11px Verdana!important; color:#666;}
+#ataglanceedit .x-panel-btns{padding-top:1px;}
+
+#ataglanceedit>.x-panel-bwrap{
+	height:148px!important;
+	padding:5px 33px 7px 33px;
+	margin:4px;
+	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	background:transparent url(../images/mastercard/bg-aagedit.gif) top left repeat-x;
+}
+
+#saveCancel-x-portlet-news, #saveCancel-x-portlet-spotlight, #saveCancel-x-portlet-marketing{
+	width:148px; 
+	height:122px;
+	background: transparent url(../images/mastercard/bg-aagedit-inactive.gif) top left no-repeat;
+}
+
+#saveCancel-x-portlet-news.x-editicon-active, #saveCancel-x-portlet-spotlight.x-editicon-active, #saveCancel-x-portlet-marketing.x-editicon-active{
+	background:transparent url(../images/mastercard/bg-aagedit-active.gif) top left no-repeat;
+}
+
+#saveCancel-x-portlet-news.x-editicon-over, #saveCancel-x-portlet-spotlight.x-editicon-over, #saveCancel-x-portlet-marketing.x-editicon-over{
+	background:transparent url(../images/mastercard/bg-aagedit-over.gif) top left no-repeat;
+}
+
+#ataglanceedit .x-toolbar-cell{overflow:visible;}
+#saveCancel-x-portlet-news .x-panel-tbar, #saveCancel-x-portlet-spotlight .x-panel-tbar, #saveCancel-x-portlet-marketing .x-panel-tbar{height:25px;}
+#saveCancel-x-portlet-news .x-panel-header, #saveCancel-x-portlet-spotlight .x-panel-header, #saveCancel-x-portlet-marketing .x-panel-header{border-bottom:none;}
+
+.x-editicon-title{position:relative; top:8px; left:4px; font:10px Verdana bold;}
+.x-editicon-control button{width:16px; height:16px;}
+.x-portlet-editicon{position:relative; left:4px;}
+
+#news a{color:#466D96; font:11px Arial;}
+#news .xtb-text{font:11px Arial;}
+
+#x-portlet-news, #-portlet-spotlight{background: #fff }
+#x-portlet-news>.x-panel-bwrap *{background-color:transparent;}
+
+
+
+/*STUBBED OUT DATA: REMOVE*/
+#atAGlance_newsHighlight{padding-top:17px;}
+#atAGlance_newsHighlight h3, #x-portlet-spotlight h3, #atAGlance_news .x-panel-header{font-size:10px; font-family:Arial,Helvetica,"Sans serif"; font-weight:normal; color:#333;}
+#atAGlance_newsHighlight h3{padding-bottom:6px; border-bottom:1px solid #444472;}
+#atAGlance_newsHighlight p{font-size:9px; color:#666;}
+ul#list-otherHeadlines{margin-left:7px; border-top:1px solid #b7b7b0; border-left:1px solid #dbdbd2; border-right:1px solid #dbdbd2; border-bottom:1px solid #f3f3e8;}
+ul#list-otherHeadlines li{clear:right; padding:6px 10px 4px 0; font:9px Arial; color:#666; border-bottom:1px solid #efefe5; background: #fffff4 url(../images/mastercard/bg-otherHeadlines.gif) top left repeat-x;}
+ul#list-otherHeadlines a{padding-left:18px; background:transparent url(../images/mastercard/arrow-otherHeadlines.gif) 7px 3.5px no-repeat!important; font-weight:bold; color:#003366; text-decoration:none;}
+ul#list-otherHeadlines span{width:auto; float:right;}
+/*END STUBBED OUT DATA*/
+
+#x-portlet-news .x-panel-bbar, #x-portlet-spotlight .x-panel-bbar{padding-left:5px; font-size:11px}
+#x-portlet-news .x-panel-bbar a, #x-portlet-spotlight .x-panel-bbar a{margin-right:6px; font:9px Arial!important; font-weight:bold; color:#003366; text-decoration:none;}
+#x-lastUpdate{color:#bdc2c6; font-size:9px!important;}
+
+
+#x-portlet-spotlight .x-panel-header, #x-portlet-marketing .x-panel-header{background: transparent url(../images/mastercard/portlets-grippers.gif) center center no-repeat;}
+#x-portlet-spotlight h3{margin:18px 0 10px 0;}
+#x-container-portletApp{padding-left:6px;}
+.x-portletApp{padding:12px 17px 20px 12px; background: #fffff4 url(../images/mastercard/bg-sampleApp.gif) top left repeat-x; border-top:1px solid #bdbdb5; border-right:1px solid #d8d8d0; border-bottom: 1px solid #dadad1; border-left: 1px solid #e5e5db;overflow:hidden}
+.x-portletApp img{width:auto; float:left; margin-right:12px;}
+.x-portletApp p{margin-left:150px;}
+a.arrow{padding-right:9px; color:#003366; text-decoration:none; background:transparent url(../images/mastercard/arrow-link-right.gif) center right no-repeat;}
+
+#x-portlet-marketing{background-color:#fff;}
+#x-portlet-marketing .x-panel-ml{border-top-color:#ff7f12;}
+
+#x-bbar-marketing{background-color:#fff;}
+.x-portlet-footer{height:15px!important;}
+.x-portlet-footer td{vertical-align:top!important;}
+
+#ataglance .x-panel-nofooter .x-window-br{background-color: #f8f8f8; background-image:none; border:1px solid #919191; border-width:1px 1px 0px 0px;}
+#ataglance .x-panel-nofooter .x-window-bc{background-image:none;}
+/*.x-portlet-footer td,*/
+
+/* post CMS styles */
+
+#x-portlet-news .body-newsheadline, .body-spotlighttitle {
+	font-weight:bold;
+	font-size:11px;
+	 border-bottom: 1px solid #65708C;
+	 text-transform:uppercase;
+	 margin:5px 0 5px 0;
+	 padding-bottom:5px
+}
+
+#x-portlet-news .x-window-ml {
+	padding-left:6px
+}
+
+#x-portlet-news .x-window-mr {
+	padding-right:6px
+}
+
+/*APPLICATION DOCK*/
+.ux-taskbuttons-scroller-left{
+	background: transparent url(../images/mastercard/arrow-left-scrollingDock.gif) center left no-repeat;
+}
+
+.ux-taskbuttons-scroller-right {
+	background: transparent url(../images/mastercard/arrow-right-scrollingDock.gif) center left no-repeat;
+}	
+
+.rtClickMenu{
+	background: #dddbdc url(../images/mastercard/bg-rtClickPanel.gif) top left repeat-x;
+}
+/*.rtClickMenu span{color:#346699; font:12px arial;}*/
+.rtClickMenu span{font:10px Arial; color: #666665; cursor:pointer;}
+
+#loaderDiv, .loadingWrapper{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.loadingMessage{
+	color:#666666;
+	background: white url(../images/ajax-loader.gif) no-repeat 50% 40%;
+	border:1px solid #999999;
+	padding:60px 40px 20px;
+	width:96px;
+	position: relative;
+	top: 40%;
+	left: 43%;
+}
+
+.utilMenu .x-panel-btns {
+}
+
+#x-form-el-feedback-likeItGroup{
+	padding-top:40px;
+}
+
+#updatesubscriptionEmailForm{
+	padding: 5px;
+}
+
+.bg-sticks {
+	background:url(../images/mastercard/bg-sticks.jpg) repeat-y;
+	color:#666;
+	width:15px
+}
+
+.bg-sticks span, .bg-sticks-left span, .bg-sticks-right span, #cartpanel-xcollapsed span  {
+	-webkit-transform: rotate(-90deg);
+	-moz-transform: rotate(-90deg);
+	text-align: center;
+	position: relative;
+	top:50%;
+	display:block;	
+	font-size:10px;
+	width:100px;
+	height:110px
+}
+
+.bg-sticks-left {
+	background:url(../images/mastercard/bg-sticks.jpg) repeat-y -1px 0px;
+	color:#666;
+	width:15px;
+}
+
+.bg-sticks-right {
+	background:url(../images/mastercard/bg-sticks.jpg) repeat-y 1px 0px;
+	color:#666;
+	width:15px;
+}
+
+#gettingstarted .bg-sticks-left span, #gettingstarted .bg-sticks span{
+	left:4px;
+	top:80px;
+}
+
+.x-toolbar-cell{
+	height: 100%;
+}
+
+#topNav .x-toolbar-right-row .x-toolbar-cell span.xtb-sep {
+	background-image: url(../images/btn-menubar-divider-1.gif);
+	background-position: bottom !important;
+	background-repeat: no-repeat;
+	display: block;
+	height: 62px;
+	width:1px;
+}
+
+.x-table-layout .x-menu-list{
+	padding: 2px 10px 10px 10px;
+}
+
+.gettingstarted-title{
+	position: relative;
+	top: 2px;
+}
+
+.x-tab-panel-header {
+	border: 0px solid;
+	padding:0 10px 0 10px;
+	background:none
+}
+
+.tools-application-closed.x-btn-over, .tools-application-opened.x-btn-over    {
+	background:none !important
+}
+
+.tools-application-closed.x-btn-over button, .tools-application-opened.x-btn-over button  {
+	color:#346699 !important
+}
+
+
+.tools-application-closed .x-btn-mc button {
+	padding-left:15px;
+	background:url(../images/mastercard/list-arrow-right.gif) no-repeat 4px center;
+}
+
+.tools-application-opened .x-btn-mc button {
+	padding-left:15px;
+	background:url(../images/mastercard/list-arrow-down-white.gif) no-repeat 5px 6px;
+}
+
+.tools-application-opened .x-btn-mc {
+	background:transparent url(../images/mastercard/bg-modal-list.gif) repeat-x scroll left top;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	padding-left:15px;
+	width:100% !important;
+	padding-right:5px !important;
+	height:27px
+}
+
+.tools-application-opened .x-btn-mc button, .tools-application-opened .x-btn-mc button:hover {
+	color:#fff !important
+}
+
+
+.tools-application-closed .x-btn-mc em, .tools-application-opened .x-btn-mc em {
+	background:url(../images/mastercard/icon-app-edit.gif) no-repeat center right;
+}
+
+.appMenu-open li {
+	background:none !important;
+	padding-left:15px;
+	font-weight:normal;
+}
+
+.appMenu-open .x-btn-over{
+	background:none !important;
+
+}
+
+.appMenu-open button {
+	font-weight:normal !important
+}
+
+.appMenu-open .x-btn-over button {
+	color:#000033 !important;
+}
+
+.appMenu-open li button { font-size:10px !important }
+
+.appMenu-open li span {
+	display:none
+}
+
+#x-menu-el-noAlertsPanel, #x-menu-el-x-label-noFavs {
+	background:none !IMPORTANT
+}
+
+.x-panel-body .body-title, .x-panel-body .body-overview {
+	color:#646462;
+	font-size:14px;
+	margin:10px 0 10px 14px;
+	padding-bottom:15px;
+	border-bottom:1px solid #646462
+}
+
+.x-panel-body .body-text, .x-panel-body .body-footer, .x-panel-body .body-disclaimer {
+	color:#646462;
+	font-size:11px;
+	padding:0 0 0 5px
+}	
+
+.x-panel-body .right-image {
+	display:block;
+	float:right;
+	margin:10 10px 10px 10px
+}
+
+.x-panel-body .body-lastupdated, .x-panel-body .body-author, .x-panel-body .body-subtitle, .x-panel-body .body-summary {
+	font-size:10px;
+	padding: 0 0 0 15px;
+	color:#646462;
+}
+
+#taskguidesdynamicpanel  {
+	margin:0 0 0 10px;
+	width100%
+}
+
+#taskguidesdynamicpanel .x-panel-body{
+	border:2px solid #C7D2D6;
+	margin:0 0 0 10px
+}
+
+.menubar-dropdowns .x-menu-list {
+	padding-top:10px
+}
+
+.menubar-dropdowns .x-menu-list li {
+	background:none
+}
+
+
+#catalogpanel {
+	left:13px !important;
+	padding:0;
+	margin:0 
+}
+
+#catalogpanel .container-catalogdepartmentilter,  #catalogpanel .container-catalogdepartmentilter div{
+	width:180px!important;
+}
+
+#catalogpanel  .x-panel-ml, #catalogpanel  .x-panel-mr {
+	padding:0px
+}
+
+#doublestick-checkout {
+	left:20px;
+	position:absolute !important;
+	top:140px !important;
+	color:#666666
+}
+
+#doublestick-cart {
+	position:absolute !important;
+	top:140px !important;
+	left:5px;
+	color:#666666;
+}

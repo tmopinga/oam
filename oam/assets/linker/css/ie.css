@@ -1,0 +1,205 @@
+/* fixes alignment issues in the menubar */
+
+#menubar .collapseButton, .ghost .collapseButton, #menubar .dragHandle, .ghost .dragHandle  {
+
+}
+
+#dragHandleTable, #collapseButtonTable {
+	position:relative;
+	top:-1px
+}
+
+.ghost #dragHandleTable, .ghost #collapseButtonTable {
+	position:relative;
+	top:0px
+}
+
+#menubar.docked-left .dragHandle {
+	width:120px
+}
+
+.x-tab-strip-top .x-tab-strip-active .x-tab-right span.x-tab-strip-text {
+    margin-bottom:5px;
+	padding-bottom:0px
+}
+
+#task-panel {
+	height:23px;
+	overflow:visible
+}
+
+.utilMenu .x-tab-strip-wrap li {
+	width:155px
+}
+
+#alertsMenu {
+	padding:10px 0 10px 0
+}
+
+#alertsGrid {
+	border-bottom:1px solid #999	
+}
+
+.x-form-field-wrap .x-form-trigger, .x-form-field-wrap .x-form-trigger-over {
+    background:#fff url(../images/mastercard/list-arrow-down.png) no-repeat bottom left;
+}
+
+.util-text-box {
+	margin:0 10px 0 0;
+	float:right;
+	height:380px;
+	overflow:auto;
+	padding-right:0px
+}
+
+#generalTreePanel {
+	width:120px !important
+}
+
+ #applicationTreePanel {
+	width:135px !important
+}
+
+#contactsTreePanel {
+	width:145px !important
+}
+
+.x-tree-arrows .x-tree-elbow-plus {
+    background:transparent url(../images/mastercard/list-arrow-right.png) no-repeat 0px 5px;
+}
+
+.help-apps-lists a {
+	position:relative;
+	top:-2px
+}
+
+.x-tree-node-el {
+    line-height:20px;
+    cursor:pointer;
+	padding:2px 0 2px 0	
+}
+
+.feedback-container {
+	position:relative;
+	left:15px;
+	width:325px !important
+}
+.contactus-container {
+	position:relative;
+	left:10px;
+	white-space:normal !important;
+	margin-right:10px !important;
+}
+
+.menubar-dropdowns .x-btn-mc button {
+	width:250px !important;
+	zoom: 1
+}
+
+}.x-window-dlg .x-window-bwrap {
+	border:1px solid #999 !important;
+	border-top:0px !important
+}
+
+.x-btn button {
+    padding-left:0;
+    padding-right:0;
+	font-size:11px;
+	color:#333;
+	font-weight:bold;	
+	font-family:Arial
+}
+
+.x-resizable-handle-southeast{
+    right:-1px;
+    bottom:-1px;
+}
+
+#licensedapplicationsbutton button, #availableapplicationsbutton button {
+	position:relative;
+	top:-3px
+}
+
+#maincatalogitemspanel input {
+	position:relative;
+	top:-2px
+}
+
+#productcatalogsearchfield {
+	height:17px !important
+	top:-1px !important;
+	font-size:10px 
+}
+
+.x-tool-expand-east {
+	margin-left:4px
+}
+
+.print-toolbar .x-btn-mc {
+	position:relative;
+	left:-7px
+}
+.x-tree-icon, .x-tree-ec-icon, .x-tree-elbow-line, .x-tree-elbow, .x-tree-elbow-end, .x-tree-elbow-plus, .x-tree-elbow-minus, .x-tree-elbow-end-plus, .x-tree-elbow-end-minus{
+	width: 14px;
+}
+
+.x-btn .atGlance {
+	position:	relative;
+	top:-4px
+}
+/* vertical sticks, a la IE */
+.bg-sticks {
+	width:15px
+}
+
+.bg-sticks span {
+	filter: 
+	progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	text-align: center;
+	position: absolute;
+	top:50%;
+	display:block;	
+	//background:transparent url(../images/mastercard/bg-sticks-ie.jpg) repeat-x;
+	width:15px
+}
+
+.x-tab-strip-top .x-tab-strip-active .x-tab-right span.x-tab-strip-text {
+    margin:0px
+}
+
+.feedback-textarea {
+	width:315px !important;
+}
+
+.util-text-box {
+	width:325px !important
+}
+
+/* height fixes for utility menu */
+
+#generalTab {
+	height:385px !important;
+	width:500px !important
+}
+
+.utilMenu {
+	width:500px !important;
+	overflow:hidden;
+}
+
+#menubar button {
+	position:relative;
+	top:0px
+}
+
+.x-tree-arrows .x-tree-elbow-plus {
+    background:transparent url(../images/mastercard/list-arrow-right.png) no-repeat 7px 4px;
+}
+
+#menubar.collapsed .x-toolbar .xtb-sep {
+	background:transparent url(../images/mastercard/btn-menubar-divider.gif) no-repeat scroll left center !important
+}
+
+#menubar button {
+	padding:0px
+}

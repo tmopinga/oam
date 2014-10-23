@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>SecurID Accept New PIN Form</title>
+    <script language="JavaScript">
+        function submitForm() {
+            document.forms[0].submit();
+        }
+    </script>
+    <link href="/linker/css/master-style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body onload="self.focus();document.loginform.login.focus()">
+<div id="container">
+    <div id="header">
+        <div id="logo"></div>
+    </div>
+    <div id="wrapper">
+        <div id="wrapper2">
+            <div id="content">
+                <div class="title">New PIN</div>
+
+
+<center>
+<h2>
+<!-- img SRC="rsa-securid.gif" height=27 width=133 --></h2></center>
+
+<center><font class="basictextfonts3">Your new PIN is <%=newpin%></font>
+<br><font class="basictextfonts3">Use this new PIN to login in the future.</font><font class="basictextfonts3"></font>
+<p><font class="basictextfonts3">You will be redirected to the originally
+requested resource in 30 seconds.</font><font class="basictextfonts3"></font>
+<p><form name="loginform" action="/cgi-bin/securid.pl" method="post"></center>
+
+<center><table BORDER=0 CELLSPACING=0 CELLPADDING=0 >
+<tr>
+<td ALIGN=RIGHT VALIGN=CENTER><font class="basictextfonts3"></font></td>
+
+<td><font class="basictextfonts3">&nbsp;</font></td>
+
+<td ALIGN=LEFT VALIGN=CENTER><font class="basictextfonts3"></font></td>
+</tr>
+</table></center>
+
+<center><input type="hidden" name="program" value=""><input type="hidden" name="form" value="new-pin">
+<p></form></center>
+               <br clear="all" />
+            </div><!--end of content div-->
+        </div>
+    </div>
+    <div id="footer">Copyright &copy; MasterCard 2011</div>
+</div>
+
+</body>
+</html>
