@@ -13,5 +13,8 @@
 
 
 module.exports.policies = {
-  'v1/AccessController': {'index': ['isAuthenticated']}
+	'v1/AccessController': {
+		'proxy': ['isAuthenticated'],
+		'viewForm' : ['isNotAuthenticated']
+	}
 };

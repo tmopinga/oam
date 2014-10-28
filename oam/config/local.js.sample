@@ -1,0 +1,21 @@
+/*
+   Set session config in policies.js (ttl)
+*/
+
+module.exports = {
+
+  port: process.env.PORT || 1337,
+
+  environment: process.env.NODE_ENV || 'development',
+
+  frontEnd : {
+  	"tcx" : "http://10.133.154.95:8080"
+  },
+
+  token : {
+  	"mode": "aes-128-cfb",
+    "key": "abcdefghabcdefgh",
+    "iv": "12345678abcdefgh",
+    "lifetime": 86400
+  }
+};

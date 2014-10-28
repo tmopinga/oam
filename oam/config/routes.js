@@ -1,9 +1,11 @@
 module.exports.routes = {
 
-  'get /:origin/mpgportal': 'v1/AccessController.index',
+  'get /:origin/mpgportal/logout/index' : 'v1/AccessController.logout',
+
+  'get /:origin/mpgportal*': 'v1/AccessController.proxy',
   
   'get /:origin/securid-forms/:form' : 'v1/AccessController.viewForm',
 
-  'post /:form/securid-std-login' : 'v1/AccessController.login'
+  'post /login' : 'v1/AccessController.login'
 
 }
