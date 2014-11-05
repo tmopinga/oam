@@ -7,5 +7,5 @@ module.exports = function(req, res, next) {
   }
 
   // Regardless of last request url, redirect user back to /mpgportal
-  return res.redirect(req.params.origin + '/mpgportal');
+  return res.redirect(req.params.origin + '/mpgportal/home/index');
 }  

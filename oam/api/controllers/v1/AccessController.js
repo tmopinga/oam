@@ -1,7 +1,7 @@
 
 var crypto = require('crypto');
 var querystring = require('querystring');
-var request = require('request').defaults({maxRedirects:1000, followRedirect: true, jar: true});
+var request = require('request').defaults({maxRedirects:100, followRedirect: true, jar: true});
 
 function createSSOCookie(req) {
 	var cipher = crypto.createCipheriv(
@@ -29,12 +29,12 @@ module.exports = {
 			- add userlogin in headers
 		- Send the response
 		*/
-
 		var frontendUrl = sails.config.frontEnd[req.params.origin] + req.url;
 		req.headers.userlogin = req.session.userlogin;
-		request(frontendUrl, {headers: req.headers, cookie: req.cookies}, function(error, response, body) {
+		var r = request(frontendUrl, {headers: req.headers, cookie: req.cookies}, function(error, response, body) {
 			sails.log.info(frontendUrl);
-		}).pipe(res);
+		});
+		req.pipe(r).pipe(res);
 	},
 
 	viewForm : function(req, res) {
@@ -45,7 +45,7 @@ module.exports = {
 	logout : function(req, res) {
 		req.session.destroy();
 		res.cookie("ObSSOCookie", "loggedoutcontinue");
-		res.redirect(req.params.origin + "/mpgportal");
+		res.redirect(req.params.origin + "/mpgportal/home/index");
 	},
 
 	login : function(req, res) {

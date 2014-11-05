@@ -17,7 +17,7 @@ module.exports.session = {
   host: 'localhost',
   port: 6379,
   ttl: 900,
-  db: 0,
+  db: 3,
   //pass: "<redis auth password>"
   prefix: 'sess:'
 };
